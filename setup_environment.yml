@@ -1,0 +1,11 @@
+---
+
+- name: Provision ec2 environment
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+    - group_vars/all
+  roles:
+    - { role: setup-environment }
+    - { role: manage-instances }

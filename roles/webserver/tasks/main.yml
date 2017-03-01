@@ -1,0 +1,5 @@
+---
+# tasks file for webserver
+
+- include: install.yml
+- include: configure.yml

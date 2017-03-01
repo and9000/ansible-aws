@@ -1,0 +1,7 @@
+---
+# handlers file for webserver
+
+- name: Reload Apache2
+  service:
+    name: apache2
+    state: reloaded

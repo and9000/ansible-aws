@@ -1,0 +1,16 @@
+---
+# tasks file for manage-instances
+
+- name: Provision micro instances
+  ec2:
+     key_name: "devops"
+     group: ["devops-ssh", "devops-web"]
+     instance_type: t2.micro
+     image: "{{ image_id }}"
+     wait: true
+     exact_count: 1
+     region: "{{ ec2_region }}"
+     count_tag:
+        Name: devops-web
+     instance_tags:
+        Name: devops-web

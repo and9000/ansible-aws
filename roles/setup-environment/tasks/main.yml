@@ -1,0 +1,6 @@
+---
+# tasks file for setup
+
+- include: key_pairs.yml
+
+- include: security_groups.yml

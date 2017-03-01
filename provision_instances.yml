@@ -1,0 +1,20 @@
+---
+
+- name: Install python
+  hosts: tag_Name_devops_web
+  gather_facts: False
+  become: true
+  vars_files:
+      - group_vars/all
+  tasks:
+    - name: install python 2
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
+- name: Install depends
+  hosts: tag_Name_devops_web
+  gather_facts: False
+  become: true
+  vars_files:
+     - group_vars/all
+  roles:
+    - { role: webserver }

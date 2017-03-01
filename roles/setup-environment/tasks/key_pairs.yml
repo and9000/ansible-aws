@@ -1,0 +1,17 @@
+---
+# tasks file for setup
+
+- name: Create devops key pairs
+  ec2_key:
+    name: "devops"
+    region: "{{ ec2_region }}"
+  register: devops_key
+
+- debug: var=devops_key
+
+- name: Save devops private key
+  copy:
+    content: "{{ devops_key.key.private_key }}"
+    dest: "~/.ssh/devops/devops-aws-private.pem"
+    mode: 0600
+  when: devops_key.changed

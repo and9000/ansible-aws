@@ -1,0 +1,11 @@
+---
+# tasks file for setup
+
+- name: Create required security groups
+  ec2_group:
+    name: "{{ item.name }}"
+    description: "{{ item.desc }}"
+    rules: "{{ item.rules }}"
+    region: "{{ ec2_region }}"
+    rules_egress: "{{ item.rules_egress }}"
+  with_items: "{{ security_groups }}"

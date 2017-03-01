@@ -1,0 +1,6 @@
+---
+
+ec2_region: eu-central-1
+image_id: ami-a9a557c6
+ansible_ssh_user: ubuntu
+ansible_ssh_extra_args: '-o StrictHostKeyChecking=no'
